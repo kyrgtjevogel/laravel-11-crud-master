@@ -35,10 +35,10 @@
             <th>Snoep naam</th>
             <th>Prijs snoep</th>
             <th>Updated at</th>
-            @role('admin')
+            
                 <th>Update</th>
                 <th>Delete</th>
-            @endrole
+            
           </tr>
       </thead>
       <tbody>
@@ -48,7 +48,7 @@
               <td>{{$snoep->naam}} </td>
               <td>{{$snoep->value}}</td>
               <td>{{$snoep->updated_at}}</td>
-              @role('admin')
+            
                   <td><a href="/snoep/edit/{{$snoep->id}}" class="btn btn-primary">Edit</a></td>
                   <td>
                       <form action="/snoep/destroy/{{$snoep->id}}" method="post">
@@ -56,7 +56,7 @@
                           <button onclick="return confirm('Are you sure?')" class="btn btn-danger" type="submit">Delete</button>
                       </form>
                   </td>
-              @endrole
+             
           </tr>
           @endforeach
       </tbody>

@@ -15,9 +15,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
+Route::middleware(['auth', 'role:klant|admin'])->group(function () {
 Route::get('snoep', [App\Http\Controllers\SnoepController::class, 'index']);
+});
 
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth', 'role:admin'])->group(function() {
 Route::get('snoep/create', [App\Http\Controllers\SnoepController::class, 'create']);
 Route::post('snoep/store', [App\Http\Controllers\SnoepController::class, 'store']);
 Route::get('snoep/edit/{id}',   [App\Http\Controllers\SnoepController::class, 'edit']);
